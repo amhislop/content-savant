@@ -1,0 +1,16 @@
+*.log
+node_modules/
+
+# ignore CodeMirror demo folder
+codemirror/demo
+
+# ignore code mirror modes
+codemirror/mode/*
+!codemirror/mode/css
+!codemirror/mode/javascript
+!codemirror/mode/jsx
+!codemirror/mode/xml
+!codemirror/mode/htmlmixed
+
+# ignore code mirror themes
+codemirror/theme
