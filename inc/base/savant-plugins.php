@@ -21,7 +21,6 @@ class SavantPlugins extends SavantController
 
       wp_enqueue_style('font-awesome', "https://use.fontawesome.com/releases/v5.0.11/css/all.css");
       wp_enqueue_style( 'codemirror_css', "$this->plugin_url/codemirror/lib/codemirror.css" );
-      wp_enqueue_style( 'codemirror_docs_css', "$this->plugin_url/codemirror/doc/docs.css" );
 
     }
 
