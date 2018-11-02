@@ -20,7 +20,9 @@ const cssDIST = 'assets/css';
  * Clean
  */
 gulp.task('clean', () =>
-  gulp.src(`${cssDIST}/base.min.css`, { read: false }).pipe($.clean())
+  gulp
+    .src(`${cssDIST}/base.min.css`, { read: false, allowEmpty: true })
+    .pipe($.clean())
 );
 
 /*
@@ -34,7 +36,7 @@ gulp.task('js', () =>
     .pipe($.rename('bundle.js'))
     .pipe($.buffer())
     .pipe($.sourcemaps.init({ loadMaps: true }))
-    // .pipe($.uglify())
+    .pipe($.uglify())
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(jsDist))
 );

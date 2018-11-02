@@ -6,9 +6,18 @@ require('../../../codemirror/addon/mode/simple');
 require('./modes/enhanced');
 
 import Savant from './modules/dataset';
-import { isEmpty, uniqueID } from './modules/utilities';
-import { add_script, delete_script, update_script } from './actions/scriptActions';
-
+import {
+  isEmpty,
+  uniqueID,
+  getFirstScript,
+  uploader,
+  getFileName
+} from './modules/utilities';
+import {
+  add_script,
+  delete_script,
+  update_script
+} from './actions/scriptActions';
 
 // Initialise Data
 const content = new Savant();
@@ -27,26 +36,25 @@ const editor = CodeMirror.fromTextArea(
 );
 
 const core = {
-
   // Cache DOM
   elements: {
     _svt: document.getElementById('savant_meta'),
     menu: document.querySelector('.savant-tab ul'),
     output: document.querySelector('.savant-data'),
     settings: document.querySelectorAll('.savant-settings .settings-field'),
-    icons: document.querySelectorAll('.controls i.icon'),
+    icons: document.querySelectorAll('.controls i.icon')
   },
 
   // Initialise User Interface
   init() {
-
-    !isEmpty(scripts) ? this.setActiveScript(0) : this.newSession(true);
+    !isEmpty(scripts)
+      ? this.setActiveScript(getFirstScript(scripts))
+      : this.newSession(true);
 
     this.events();
   },
 
   events() {
-
     const { _svt, menu, settings, icons } = this.elements;
 
     // Select Item from Nav
@@ -61,11 +69,13 @@ const core = {
     );
 
     // Bin Item
-    _svt.querySelector('i.trash')
+    _svt
+      .querySelector('i.trash')
       .addEventListener('click', this.deleteScript.bind(this));
 
     // Submits new script form
-    _svt.querySelector('button.btn[type="submit"]')
+    _svt
+      .querySelector('button.btn[type="submit"]')
       .addEventListener('click', this.newScript.bind(this));
 
     // Icon Buttons
@@ -74,8 +84,14 @@ const core = {
     );
 
     // Toggles radio input buttons
-    _svt.querySelectorAll('.btn.radio')
+    _svt
+      .querySelectorAll('.btn.radio')
       .forEach(btn => btn.addEventListener('click', this.toggleButtons));
+
+    // WP uploader
+    _svt
+      .querySelector('.file .upload')
+      .addEventListener('click', this.uploadFile.bind(this));
   },
 
   selectScript(e) {
@@ -108,7 +124,7 @@ const core = {
     }
 
     // Set settings values
-    const { label, type, language } = scripts[id];
+    const { label, type, language, file } = scripts[id];
 
     for (const [key, value] of Object.entries({ label, type, language })) {
       document.querySelector(
@@ -118,6 +134,9 @@ const core = {
 
     // Set the editor or file window
     document.querySelector('.savant-window').dataset['type'] = type;
+
+    // Set the file tag name
+    document.querySelector('.file div span').textContent = getFileName(file);
   },
 
   newSession(toggle) {
@@ -127,7 +146,6 @@ const core = {
     document
       .querySelector('.savant.side-bar')
       .classList[toggle ? 'add' : 'remove']('new', 'expand');
-
   },
 
   deleteScript() {
@@ -143,19 +161,19 @@ const core = {
 
     // If Scripts Object is not empty set Active Script to first item else set New Session Window
     if (!isEmpty(scripts)) {
-      this.setActiveScript(0)
+      this.setActiveScript(getFirstScript(scripts));
     } else {
       this.newSession(true);
-      editor.setValue('')
+      editor.setValue('');
     }
   },
 
-  attrUpdate(e) {
+  attrUpdate(e, data = false) {
     const { id } = this.activeScript;
     const { output, menu } = this.elements;
 
-    const attr = e.target.dataset['attribute'];
-    const value = e.target.value;
+    const attr = data.attr || e.target.dataset['attribute'];
+    const value = data.value || e.target.value;
 
     const dest = {
       input: output.querySelector(
@@ -168,11 +186,17 @@ const core = {
     update_script(scripts[id], { attr, value }, dest);
 
     // Set the editor to new Mode
-    if (attr === 'language') editor.setOption('mode', options.mode[scripts[id].language]);
+    if (attr === 'language')
+      editor.setOption('mode', options.mode[scripts[id].language]);
 
     // Set the editor or file window
-    if (attr === 'type') document.querySelector('.savant-window').dataset['type'] = value;
+    if (attr === 'type')
+      document.querySelector('.savant-window').dataset['type'] = value;
 
+    // Set file name under button
+    if (attr === 'file') {
+      document.querySelector('.file div span').textContent = getFileName(value);
+    }
   },
 
   codeUpdate() {
@@ -196,7 +220,8 @@ const core = {
 
     // Get new data from input form
     const language = n.querySelector('.language input:checked').value;
-    const label = n.querySelector('.label input').value || language.toUpperCase();
+    const label =
+      n.querySelector('.label input').value || language.toUpperCase();
     const type = n.querySelector('.type input:checked').value;
     const id = uniqueID(scripts);
 
@@ -236,6 +261,29 @@ const core = {
       btn.classList[this == btn ? 'add' : 'remove']('active');
       btn.children[0].checked = this == btn ? true : false;
     }
+  },
+
+  uploadFile(e) {
+    e.preventDefault();
+
+    let mediaUploader = uploader();
+
+    let attachment;
+
+    mediaUploader.on('select', () => {
+      attachment = mediaUploader
+        .state()
+        .get('selection')
+        .first()
+        .toJSON();
+
+      this.attrUpdate(e, {
+        attr: 'file',
+        value: attachment.url
+      });
+    });
+
+    mediaUploader.open();
   }
 };
 

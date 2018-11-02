@@ -75,7 +75,7 @@ $data =  get_post_meta($post->ID, 'savant_field', true);
           <input type="button" value="Select File" class="upload button button-secondary">
           <input type="hidden" data-id="" data-attribute="file" value="">
           <div>
-            <i class="icon edit-settings close"></i>
+            <span></span>
           </div>
         </div>
 

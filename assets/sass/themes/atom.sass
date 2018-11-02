@@ -1,8 +1,7 @@
 // Name:       Atom Dark
 // Author:     Aidan Hislop (http://github.com/amhislop)
 
-// CodeMirror template by Aidan Hislop (https://github.com/amhislop/atomdark-codemirror)
-// Original Base16 color scheme by Name (https://github.com/name/base16)
+// CodeMirror template by Aidan Hislop (https://github.com/amhislop/content-savnt)
 
 .cm-s-atom-dark
     &.CodeMirror
@@ -47,7 +46,7 @@
     span.cm-attribute
         color: $red
 
-    span.cm-keyword
+    span.cm-keyword, span.cm-keyword2
         color: $purple
 
     span.cm-object, span.cm-class
@@ -69,10 +68,10 @@
         color: $default
 
     span.cm-variable-2
-        color: #01a0e4
+        color: $red
 
     span.cm-def
-        color: #e8bbd0
+        color: $default
 
     span.cm-bracket
         color: #3a3432
@@ -84,8 +83,7 @@
         color: #a16a94
 
     span.cm-error
-        background: #db2d20
-        color: #5c5855
+        border-bottom: 1px ridge red;
 
     .CodeMirror-activeline-background
         background: #e8f2ff
