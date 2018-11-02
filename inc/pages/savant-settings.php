@@ -101,6 +101,7 @@ class SavantSettings extends SavantController
       <select name="savant_editor_theme" id="savant_editor_theme">
         <option>--Select a Theme--</option>
         <option value="atom-dark" <?php selected( $options === "atom-dark") ?>>Atom Dark</option>
+        <option value="vscode-dark" <?php selected( $options === "vscode-dark") ?>>VS Code Dark+</option>
         <option value="default" <?php selected( $options === "default") ?>>Code Mirror Default</option>
       </select>
 

@@ -1,0 +1,96 @@
+// Name:       VSCode Dark Plus
+// Author:     Aidan Hislop (http://github.com/amhislop)
+
+// CodeMirror template by Aidan Hislop (https://github.com/amhislop/content-savnt)
+
+.cm-s-vscode-dark
+    &.CodeMirror
+        background: $background
+        color: $default
+
+    div.CodeMirror-selected
+        background: #d6d5d4
+
+    .CodeMirror-line::selection, .CodeMirror-line > span::selection,.CodeMirror-line > span > span::selection
+        background: #d6d5d4
+
+    .CodeMirror-gutters
+        background: $background
+        border-right: 0px
+
+    .CodeMirror-guttermarker
+        color: #db2d20
+
+    .CodeMirror-guttermarker-subtle
+        color: #807d7c
+
+    .CodeMirror-linenumber
+        color: #807d7c
+
+    .CodeMirror-cursor
+        border-left: 1px solid #5c5855
+
+    span.cm-comment
+        color: $code-green
+        font-style: italic
+
+    span.cm-atom
+        color: $code-orange
+
+    span.cm-number
+        color: $code-yellow
+
+    span.cm-property
+        color: $code-light-blue
+
+    span.cm-attribute
+        color: $code-orange
+
+    span.cm-keyword
+        color: $code-dark-blue
+
+    span.cm-keyword2
+        color: $code-purple
+
+    span.cm-object, span.cm-class
+        color: $code-aqua
+    
+    span.cm-builtin
+        color: $code-yellow
+
+    span.cm-qualifier
+        color: $code-orange
+
+    span.cm-function
+        color: $code-yellow
+
+    span.cm-string
+        color: $code-orange
+
+    span.cm-variable
+        color: $default
+
+    span.cm-variable-2
+        color: $code-orange
+
+    span.cm-def
+        color: $default
+
+    span.cm-bracket
+        color: #3a3432
+
+    span.cm-tag
+        color: $code-light-blue
+
+    span.cm-link
+        color: #a16a94
+
+    span.cm-error
+        border-bottom: 1px ridge red;
+
+    .CodeMirror-activeline-background
+        background: #e8f2ff
+
+    .CodeMirror-matchingbracket
+        text-decoration: underline
+        color: #a16a94 !important
