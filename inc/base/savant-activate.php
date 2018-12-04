@@ -36,7 +36,7 @@ class SavantActivate
     }
 
     // Setup add on presets
-    if( !get_option( 'savant_editor_mode' ) ) update_option( 'savant_editor_mode', array( 'javascript' => 'enhancedJS', 'css' => 'css', );
+    if( !get_option( 'savant_editor_mode' ) ) update_option( 'savant_editor_mode', array( 'javascript' => 'enhancedJS', 'css' => 'css', ) );
     if( !get_option( 'savant_editor_theme' ) ) update_option( 'savant_editor_theme', 'vscode-dark' );
     if( !get_option( 'savant_editor_minify' ) ) update_option( 'savant_editor_minify', 1 );
   }

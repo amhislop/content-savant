@@ -44,13 +44,13 @@ class SavantEditor extends SavantController
     $is_revision = wp_is_post_revision( $post_id );
     $is_valid_nonce = ( isset( $_POST[ 'savant_page_nonce' ] ) && wp_verify_nonce( $_POST[ 'savant_page_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
 
-    if ( $is_autosave || $is_revision || !$is_valid_nonce || empty($_POST[ 'savant_field' ]) ) return;
+    if ( $is_autosave || $is_revision || !$is_valid_nonce ) return;
 
     $savant_field = $_POST[ 'savant_field' ];
     $savant_meta = get_post_meta($post_id, 'savant_field', true );
 
-    if ( isset( $savant_field ) ) { update_post_meta( $post_id, 'savant_field', $savant_field );
-
+    if ( isset( $savant_field ) ) { 
+      update_post_meta( $post_id, 'savant_field', $savant_field );
     } elseif( $savant_meta ) {
       delete_post_meta($post_id, 'savant_field');
     }

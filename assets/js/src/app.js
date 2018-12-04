@@ -200,6 +200,8 @@ const core = {
   },
 
   codeUpdate() {
+    if(isEmpty(scripts)) return;
+
     const { id, codeOutput } = this.activeScript;
 
     // Get the editor input, update Object and output to <input> data inputFields
