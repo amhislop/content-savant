@@ -4,9 +4,10 @@ $line_indicator = get_option('savant_editor_line_indicator');
 $boilerplate = get_option('savant_editor_boilerplate');
 $mode = get_option('savant_editor_mode');
 $theme = get_option('savant_editor_theme');
+$compiler = get_option('savant_editor_babelify');
 $data =  get_post_meta($post->ID, 'savant_field', true);
 ?>
-<div class="savant side-bar<?php if(!$data) { echo ' new'; } ?>" data="<?php echo $post->ID ?>">
+<div class="savant side-bar<?php if(!$data) { echo ' new'; } ?> <?php echo $theme; ?>" data="<?php echo $post->ID ?>">
 
   <div class="savant-tab">
 
@@ -127,6 +128,11 @@ $data =  get_post_meta($post->ID, 'savant_field', true);
     <input type="hidden" data-attribute="mode" data-language="css" value="<?php echo $mode['css']; ?>">
     <input type="hidden" data-attribute="mode" data-language="javascript" value="<?php echo $mode['javascript']; ?>">
     <input type="hidden" data-attribute="theme" value="<?php echo $theme; ?>">
+
+    <?php if($compiler) : ?>
+      <input type="hidden" data-attribute="compiler" data-language="javascript" value="true">
+    <?php endif; ?>
+
   </div>
 
   <div class="savant-data">
@@ -138,6 +144,11 @@ $data =  get_post_meta($post->ID, 'savant_field', true);
         <input type="hidden" data-id="<?php echo $id ?>" data-attribute="language" name="savant_field[<?php echo $id ?>][language]" value="<?php echo $field['language'] ?>">
         <input type="hidden" data-id="<?php echo $id ?>" data-attribute="code" name="savant_field[<?php echo $id ?>][code]" value="<?php echo htmlentities($field['code']) ?>">
         <input type="hidden" data-id="<?php echo $id ?>" data-attribute="file" name="savant_field[<?php echo $id ?>][file]" value="<?php echo $field['file'] ?>">
+
+        <?php if($compiler && $field['language'] === 'javascript') : ?>
+          <input type="hidden" data-id="<?php echo $id ?>" data-attribute="compiled" name="savant_field[<?php echo $id ?>][compiled]" value="<?php echo !empty($field['compiled']) ? $field['compiled'] : ''; ?>">
+        <?php endif; ?>
+
       <?php endforeach; ?>
      <?php endif; ?>
 

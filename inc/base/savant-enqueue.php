@@ -17,14 +17,14 @@ class SavantEnqueue extends SavantController
 
     if ( is_array( $options ) && in_array( $typenow, $options ) ) {
 
-      wp_enqueue_style( 'savant_admin_css', "$this->plugin_url/assets/css/base.min.css" );
+      wp_enqueue_style( 'savant_admin_css', "$this->plugin_url/assets/dist/css/base.min.css" );
 
     }
 
     if ( is_array( $options ) && in_array( $typenow, $options ) && ( $pagenow =='post.php' || $pagenow == 'post-new.php' ) ) {
 
       // Scripts
-      wp_enqueue_script( 'savant_admin_js', "$this->plugin_url/assets/js/build/bundle.js", array('jquery'), '1.0.0', true );
+      wp_enqueue_script( 'savant_admin_js', "$this->plugin_url/assets/dist/js/bundle.js", array('jquery'), '1.1.0', true );
 
       // WP Media
       wp_enqueue_media();

@@ -8,7 +8,7 @@
  * Description: Add Javascript and CSS on a per page basis via a syntax highlighting configurable code editor or file upload.
  * Author: Aidan Hislop
  * Author URI: http://aidanhislop.com
- * Version: 1.0
+ * Version: 1.1.0
  * License: GPL v3
  */
 

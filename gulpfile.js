@@ -11,10 +11,10 @@ const $ = require('gulp-load-plugins')({
   replaceString: /^gulp(-|\.)|^vinyl-(source-)*/
 });
 
-const jsSRC = 'assets/js/src/app.js';
-const jsDist = 'assets/js/build';
-const cssSRC = 'assets/sass/base.sass';
-const cssDIST = 'assets/css';
+const jsSRC = 'assets/src/js/app.js';
+const jsDist = 'assets/dist/js';
+const cssSRC = 'assets/src/sass/base.sass';
+const cssDIST = 'assets/dist/css';
 
 /*
  * Clean
@@ -68,8 +68,8 @@ gulp.task('sass', () =>
  */
 gulp.task('watch', () => {
   //   gulp.watch('assets/js/src/modules/*.js', gulp.series('js'));
-  gulp.watch('assets/js/src/**/*.js', gulp.series('js'));
-  gulp.watch('assets/sass/**/*.sass', gulp.series('sass'));
+  gulp.watch('assets/src/js/**/*.js', gulp.series('js'));
+  gulp.watch('assets/src/sass/**/*.sass', gulp.series('sass'));
 });
 
 gulp.task('default', gulp.series('js', 'clean', 'sass', 'watch'));

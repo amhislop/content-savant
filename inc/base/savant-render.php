@@ -68,9 +68,6 @@ class SavantRender
 
       if ( is_a( $post, 'WP_Post' ) ) {
 
-        // Filter out comments, tabs and line breaks
-        $pattern = '/(?:(?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:(?<!\:|\\\|\')\/\/.*))|(\B\s)/';
-
         $outputs = get_post_meta( $post->ID, $key, true );
 
         if(!$outputs) return;
@@ -80,9 +77,7 @@ class SavantRender
           if($output['language'] == $language && $output['type'] !== 'file') {
 
             $output = $output['code'];
-
-            if( get_option('savant_editor_minify') ) $output = preg_replace($pattern, '', $output);
-
+            
             echo "<". $tag ." type=text/". $language .">". $output . "</". $tag . ">";
 
           }
