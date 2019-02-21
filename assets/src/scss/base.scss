@@ -6,17 +6,17 @@
 // Base Styles
 // ------------------------------------
 
-@import "_variables.sass"
+@import '_variables.scss';
 
 // ------------------------------------
 // Partials
 // ------------------------------------
 
-@import "partials/columns.sass"
-@import "partials/admin.sass"
+@import 'partials/columns.scss';
+@import 'partials/admin.scss';
 
 // ------------------------------------
 // Themes
 // ------------------------------------
-@import "themes/atom.sass"
-@import "themes/vscode.sass"
+@import 'themes/atom.scss';
+@import 'themes/vscode.scss';

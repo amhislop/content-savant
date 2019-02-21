@@ -4,7 +4,7 @@ table.wp-list-table .column-savant {
   padding-left: 0; }
   table.wp-list-table .column-savant i.icon {
     font-weight: 900;
-    font-family: Font Awesome\ 5 Free;
+    font-family: Font Awesome\5 Free;
     font-style: normal; }
     table.wp-list-table .column-savant i.icon.code-icon {
       color: #21252b; }
@@ -74,7 +74,7 @@ table.wp-list-table .column-savant {
         #savant_meta .savant.side-bar.expand .savant-tab ul li.button-language.active::before {
           color: white; }
   #savant_meta .savant.side-bar:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -111,15 +111,14 @@ table.wp-list-table .column-savant {
       border-width: 1px 0;
       border-radius: 0;
       background: transparent;
-      display: block;
       text-decoration: none; }
       #savant_meta .savant.side-bar ul li::before {
-        font-family: Font Awesome\ 5 Brands;
+        font-family: Font awesome\5 Brands;
         margin-right: 0.5em; }
-      #savant_meta .savant.side-bar ul li[data-attribute=css]::before {
-        content: "\f13c"; }
-      #savant_meta .savant.side-bar ul li[data-attribute=javascript]::before {
-        content: "\f3b8"; }
+      #savant_meta .savant.side-bar ul li[data-attribute='css']::before {
+        content: '\f13c'; }
+      #savant_meta .savant.side-bar ul li[data-attribute='javascript']::before {
+        content: '\f3b8'; }
       #savant_meta .savant.side-bar ul li.active {
         border-color: #181a1f;
         color: white;
@@ -194,14 +193,16 @@ table.wp-list-table .column-savant {
         width: 20%;
         -ms-flex-pack: end;
         justify-content: flex-end; }
-      #savant_meta .savant .container-body .savant-settings .setting-container .settings-field, #savant_meta .savant .container-body .savant-settings .setting-container .savant-input {
+      #savant_meta .savant .container-body .savant-settings .setting-container .settings-field,
+      #savant_meta .savant .container-body .savant-settings .setting-container .savant-input {
         color: #abb2bf;
         border: 1px solid #181a1f;
         width: 100%;
         margin-left: 0.8em;
         border-radius: 0.2em;
         background: #1b1d23; }
-        #savant_meta .savant .container-body .savant-settings .setting-container .settings-field:focus, #savant_meta .savant .container-body .savant-settings .setting-container .savant-input:focus {
+        #savant_meta .savant .container-body .savant-settings .setting-container .settings-field:focus,
+        #savant_meta .savant .container-body .savant-settings .setting-container .savant-input:focus {
           box-shadow: none; }
       #savant_meta .savant .container-body .savant-settings .setting-container .btn-group {
         display: -ms-flexbox;
@@ -245,7 +246,7 @@ table.wp-list-table .column-savant {
     margin-right: 1em; }
     #savant_meta .savant .container-body .controls i.icon {
       font-weight: 900;
-      font-family: Font Awesome\ 5 Free;
+      font-family: Font awesome\5 Free;
       font-style: normal;
       cursor: pointer;
       opacity: 0.5;
@@ -274,17 +275,18 @@ table.wp-list-table .column-savant {
     -ms-transform: translateY(0);
     transform: translateY(0);
     transition: transform 0.2s cubic-bezier(0.55, 0.22, 0.48, 1.31); }
-    #savant_meta .savant .container-body .savant-window[data-type=editor] .editor {
+    #savant_meta .savant .container-body .savant-window[data-type='editor'] .editor {
       opacity: 1;
       -ms-transform: translateY(0);
       transform: translateY(0); }
-    #savant_meta .savant .container-body .savant-window[data-type=file] .file {
+    #savant_meta .savant .container-body .savant-window[data-type='file'] .file {
       opacity: 1;
       -ms-transform: translateY(-100%);
       transform: translateY(-100%); }
-    #savant_meta .savant .container-body .savant-window .editor, #savant_meta .savant .container-body .savant-window .file {
+    #savant_meta .savant .container-body .savant-window .editor,
+    #savant_meta .savant .container-body .savant-window .file {
       height: 300px;
-      transition: all .5s ease; }
+      transition: all 0.5s ease; }
     #savant_meta .savant .container-body .savant-window .editor {
       -ms-transform: translateY(-100%);
       transform: translateY(-100%);
@@ -310,8 +312,9 @@ table.wp-list-table .column-savant {
           opacity: 0.8;
           margin-left: 0.6em; }
           #savant_meta .savant .container-body .savant-window .file div span + i.close::before {
-            content: "\f057"; }
-  #savant_meta .savant .container-body .code-input, #savant_meta .savant .container-body .code-output {
+            content: '\f057'; }
+  #savant_meta .savant .container-body .code-input,
+  #savant_meta .savant .container-body .code-output {
     position: absolute;
     top: 0;
     left: 0;
@@ -366,34 +369,35 @@ table.wp-list-table .column-savant {
   #savant_meta .savant .container-body .line-numbers-rows span.line-active:before {
     color: #abb2bf;
     font-family: "PT Mono", monospace; }
-  #savant_meta .savant .container-body .line-highlight {
-    position: absolute;
-    right: 0;
-    margin-top: 1.3em;
-    background: #2c323c;
-    pointer-events: none;
-    line-height: inherit;
-    white-space: pre;
-    z-index: 0;
-    opacity: 0.5;
-    left: 45px; }
 
-#savant_meta .savant .icon {
+#savant_meta .savant .line-highlight {
+  position: absolute;
+  right: 0;
+  margin-top: 1.3em;
+  background: #2c323c;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+  z-index: 0;
+  opacity: 0.5;
+  left: 45px; }
+
+#savant_meta .icon {
   font-weight: 900;
-  font-family: Font Awesome\ 5 Free;
+  font-family: Font awesome\5 Free;
   font-style: normal;
   cursor: pointer;
   opacity: 0.5;
   color: #abb2bf; }
-  #savant_meta .savant .icon:hover {
+  #savant_meta .icon:hover {
     opacity: 1; }
-  #savant_meta .savant .icon.plus::before {
-    content: "\f067"; }
-  #savant_meta .savant .icon.trash {
+  #savant_meta .icon.plus::before {
+    content: '\f067'; }
+  #savant_meta .icon.trash {
     font-size: 1.1em;
     padding: 0 1em; }
-    #savant_meta .savant .icon.trash::before {
-      content: "\f2ed"; }
+    #savant_meta .icon.trash::before {
+      content: '\f2ed'; }
 
 .cm-s-atom-dark.CodeMirror {
   background: #21252b;
@@ -402,10 +406,14 @@ table.wp-list-table .column-savant {
 .cm-s-atom-dark div.CodeMirror-selected {
   background: #d6d5d4; }
 
-.cm-s-atom-dark .CodeMirror-line::-moz-selection, .cm-s-atom-dark .CodeMirror-line > span::-moz-selection, .cm-s-atom-dark .CodeMirror-line > span > span::-moz-selection {
+.cm-s-atom-dark .CodeMirror-line::-moz-selection,
+.cm-s-atom-dark .CodeMirror-line > span::-moz-selection,
+.cm-s-atom-dark .CodeMirror-line > span > span::-moz-selection {
   background: #d6d5d4; }
 
-.cm-s-atom-dark .CodeMirror-line::selection, .cm-s-atom-dark .CodeMirror-line > span::selection, .cm-s-atom-dark .CodeMirror-line > span > span::selection {
+.cm-s-atom-dark .CodeMirror-line::selection,
+.cm-s-atom-dark .CodeMirror-line > span::selection,
+.cm-s-atom-dark .CodeMirror-line > span > span::selection {
   background: #d6d5d4; }
 
 .cm-s-atom-dark .CodeMirror-gutters {
@@ -440,10 +448,12 @@ table.wp-list-table .column-savant {
 .cm-s-atom-dark span.cm-attribute {
   color: #e06c75; }
 
-.cm-s-atom-dark span.cm-keyword, .cm-s-atom-dark span.cm-keyword2 {
+.cm-s-atom-dark span.cm-keyword,
+.cm-s-atom-dark span.cm-keyword2 {
   color: #c675d2; }
 
-.cm-s-atom-dark span.cm-object, .cm-s-atom-dark span.cm-class {
+.cm-s-atom-dark span.cm-object,
+.cm-s-atom-dark span.cm-class {
   color: #e5c07b; }
 
 .cm-s-atom-dark span.cm-builtin {
@@ -488,8 +498,9 @@ table.wp-list-table .column-savant {
 
 .savant.side-bar.vscode-dark {
   background: #252526; }
-  .savant.side-bar.vscode-dark ul li.active {
-    background: #37373d; }
+
+ul li.active {
+  background: #37373d; }
 
 .cm-s-vscode-dark.CodeMirror {
   background: #1e1e1e;
@@ -498,10 +509,14 @@ table.wp-list-table .column-savant {
 .cm-s-vscode-dark div.CodeMirror-selected {
   background: #d6d5d4; }
 
-.cm-s-vscode-dark .CodeMirror-line::-moz-selection, .cm-s-vscode-dark .CodeMirror-line > span::-moz-selection, .cm-s-vscode-dark .CodeMirror-line > span > span::-moz-selection {
+.cm-s-vscode-dark .CodeMirror-line::-moz-selection,
+.cm-s-vscode-dark .CodeMirror-line > span::-moz-selection,
+.cm-s-vscode-dark .CodeMirror-line > span > span::-moz-selection {
   background: #d6d5d4; }
 
-.cm-s-vscode-dark .CodeMirror-line::selection, .cm-s-vscode-dark .CodeMirror-line > span::selection, .cm-s-vscode-dark .CodeMirror-line > span > span::selection {
+.cm-s-vscode-dark .CodeMirror-line::selection,
+.cm-s-vscode-dark .CodeMirror-line > span::selection,
+.cm-s-vscode-dark .CodeMirror-line > span > span::selection {
   background: #d6d5d4; }
 
 .cm-s-vscode-dark .CodeMirror-gutters {
@@ -542,7 +557,8 @@ table.wp-list-table .column-savant {
 .cm-s-vscode-dark span.cm-keyword2 {
   color: #c586c0; }
 
-.cm-s-vscode-dark span.cm-object, .cm-s-vscode-dark span.cm-class {
+.cm-s-vscode-dark span.cm-object,
+.cm-s-vscode-dark span.cm-class {
   color: #4ec9b0; }
 
 .cm-s-vscode-dark span.cm-builtin {
