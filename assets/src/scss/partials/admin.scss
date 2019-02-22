@@ -131,20 +131,7 @@
           text-decoration: none;
 
           &::before {
-            font-family: Font awesome\5 Brands;
             margin-right: 0.5em;
-          }
-
-          &[data-attribute='css'] {
-            &::before {
-              content: '\f13c';
-            }
-          }
-
-          &[data-attribute='javascript'] {
-            &::before {
-              content: '\f3b8';
-            }
           }
 
           &.active {
@@ -303,9 +290,6 @@
         margin-right: 1em;
 
         i.icon {
-          font-weight: 900;
-          font-family: Font awesome\5 Free;
-          font-style: normal;
           cursor: pointer;
           opacity: 0.5;
           color: $default;
@@ -317,33 +301,12 @@
             opacity: 1;
           }
 
-          &.cog {
-            &::before {
-              content: '\f013';
-            }
-            &.open {
-              transform: rotate(270deg);
-            }
+          &.cog.open {
+            transform: rotate(270deg);
           }
 
-          &.add-new {
-            &::before {
-              content: '\f067';
-            }
-            &.open {
-              transform: rotate(45deg);
-            }
-          }
-
-          &.expand-window {
-            &::before {
-              content: '\f065';
-            }
-            &.open {
-              &::before {
-                content: '\f066';
-              }
-            }
+          &.add-new.open {
+            transform: rotate(45deg);
           }
         }
       }
@@ -387,10 +350,6 @@
               font-size: 0.7em;
               opacity: 0.8;
               margin-left: 0.6em;
-
-              &::before {
-                content: '\f057';
-              }
             }
           }
         }
@@ -480,10 +439,6 @@
   }
   //icons
   .icon {
-    font-weight: 900;
-    font-family: Font awesome\5 Free;
-    font-style: normal;
-    cursor: pointer;
     opacity: 0.5;
     color: $default;
 
@@ -491,19 +446,9 @@
       opacity: 1;
     }
 
-    &.plus {
-      &::before {
-        content: '\f067';
-      }
-    }
-
     &.trash {
       font-size: 1.1em;
       padding: 0 1em;
-
-      &::before {
-        content: '\f2ed';
-      }
     }
   }
 }

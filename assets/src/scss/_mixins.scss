@@ -1,0 +1,7 @@
+@mixin fasIcon($icon) {
+  font-family: $fas;
+  content: $icon;
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer;
+}

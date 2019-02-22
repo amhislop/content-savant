@@ -24,7 +24,10 @@ class SavantEnqueue extends SavantController
     if ( is_array( $options ) && in_array( $typenow, $options ) && ( $pagenow =='post.php' || $pagenow == 'post-new.php' ) ) {
 
       // Scripts
-      wp_enqueue_script( 'savant_admin_js', "$this->plugin_url/assets/dist/js/bundle.js", array('jquery'), '1.1.0', true );
+      wp_enqueue_script( 'savant_admin_js', "$this->plugin_url/assets/dist/js/bundle.js", array('jquery', 'wp-element'), '1.1.0', true );
+
+      // WP Editor
+      wp_enqueue_code_editor(array( 'type' => 'text/html' ));
 
       // WP Media
       wp_enqueue_media();

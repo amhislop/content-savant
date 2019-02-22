@@ -1,4 +1,68 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=PT+Mono);
+[data-attribute='css']:before {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+  content: "";
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer; }
+
+[data-attribute='javascript']:before {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+  content: "";
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer; }
+
+.cog:before {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+  content: "";
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer; }
+
+.add-new:before {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+  content: "";
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer; }
+
+.plus:before {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+  content: "";
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer; }
+
+.trash:before {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+  content: "";
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer; }
+
+.close:before {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+  content: "";
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer; }
+
+.expand-window::before {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+  content: "";
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer; }
+
+.expand-window.open:before {
+  font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
+  content: "";
+  font-weight: 900;
+  font-style: normal;
+  cursor: pointer; }
+
 table.wp-list-table .column-savant {
   width: 2.5em;
   padding-left: 0; }
@@ -113,12 +177,7 @@ table.wp-list-table .column-savant {
       background: transparent;
       text-decoration: none; }
       #savant_meta .savant.side-bar ul li::before {
-        font-family: Font awesome\5 Brands;
         margin-right: 0.5em; }
-      #savant_meta .savant.side-bar ul li[data-attribute='css']::before {
-        content: '\f13c'; }
-      #savant_meta .savant.side-bar ul li[data-attribute='javascript']::before {
-        content: '\f3b8'; }
       #savant_meta .savant.side-bar ul li.active {
         border-color: #181a1f;
         color: white;
@@ -245,9 +304,6 @@ table.wp-list-table .column-savant {
     transform: translateY(100%);
     margin-right: 1em; }
     #savant_meta .savant .container-body .controls i.icon {
-      font-weight: 900;
-      font-family: Font awesome\5 Free;
-      font-style: normal;
       cursor: pointer;
       opacity: 0.5;
       color: #abb2bf;
@@ -257,20 +313,12 @@ table.wp-list-table .column-savant {
       transition: transform 0.2s cubic-bezier(0.55, 0.22, 0.48, 1.31); }
       #savant_meta .savant .container-body .controls i.icon:hover {
         opacity: 1; }
-      #savant_meta .savant .container-body .controls i.icon.cog::before {
-        content: '\f013'; }
       #savant_meta .savant .container-body .controls i.icon.cog.open {
         -ms-transform: rotate(270deg);
         transform: rotate(270deg); }
-      #savant_meta .savant .container-body .controls i.icon.add-new::before {
-        content: '\f067'; }
       #savant_meta .savant .container-body .controls i.icon.add-new.open {
         -ms-transform: rotate(45deg);
         transform: rotate(45deg); }
-      #savant_meta .savant .container-body .controls i.icon.expand-window::before {
-        content: '\f065'; }
-      #savant_meta .savant .container-body .controls i.icon.expand-window.open::before {
-        content: '\f066'; }
   #savant_meta .savant .container-body .savant-window {
     -ms-transform: translateY(0);
     transform: translateY(0);
@@ -311,8 +359,6 @@ table.wp-list-table .column-savant {
           font-size: 0.7em;
           opacity: 0.8;
           margin-left: 0.6em; }
-          #savant_meta .savant .container-body .savant-window .file div span + i.close::before {
-            content: '\f057'; }
   #savant_meta .savant .container-body .code-input,
   #savant_meta .savant .container-body .code-output {
     position: absolute;
@@ -383,21 +429,13 @@ table.wp-list-table .column-savant {
   left: 45px; }
 
 #savant_meta .icon {
-  font-weight: 900;
-  font-family: Font awesome\5 Free;
-  font-style: normal;
-  cursor: pointer;
   opacity: 0.5;
   color: #abb2bf; }
   #savant_meta .icon:hover {
     opacity: 1; }
-  #savant_meta .icon.plus::before {
-    content: '\f067'; }
   #savant_meta .icon.trash {
     font-size: 1.1em;
     padding: 0 1em; }
-    #savant_meta .icon.trash::before {
-      content: '\f2ed'; }
 
 .cm-s-atom-dark.CodeMirror {
   background: #21252b;

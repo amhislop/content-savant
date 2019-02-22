@@ -1,0 +1,36 @@
+[data-attribute='css']:before {
+  @include fasIcon('\f38b');
+}
+
+[data-attribute='javascript']:before {
+  @include fasIcon('\f3b8');
+}
+
+.cog:before {
+  @include fasIcon('\f013');
+}
+
+.add-new:before {
+  @include fasIcon('\f067');
+}
+
+.plus:before {
+  @include fasIcon('\f067');
+}
+
+.trash:before {
+  @include fasIcon('\f2ed');
+}
+
+.close:before {
+  @include fasIcon('\f057');
+}
+
+.expand-window {
+  &::before {
+    @include fasIcon('\f065');
+  }
+  &.open:before {
+    @include fasIcon('\f066');
+  }
+}

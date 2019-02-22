@@ -19,10 +19,13 @@ import { getEditorSettings } from './modules/editor';
 const content = new Savant();
 const { scripts, options } = content;
 console.log(options);
-// Setup Editor 
+// Setup Editor
 // Todo: Add Editor options to settings menu
 const editorSettings = getEditorSettings(options);
-const editor = wp.codeEditor.initialize( document.getElementById('savantEditor'), editorSettings );
+const editor = wp.codeEditor.initialize(
+  document.getElementById('savantEditor'),
+  editorSettings
+);
 
 // Todo: Move Core to Class
 const core = {
@@ -190,11 +193,11 @@ const core = {
   },
 
   codeUpdate() {
-    if(isEmpty(scripts)) return;
+    if (isEmpty(scripts)) return;
 
     const { id, codeOutput } = this.activeScript;
-    
-    const code = editor.codemirror.getValue()
+
+    const code = editor.codemirror.getValue();
 
     // Get the editor input, update Object and output to <input> data inputFields
     update_script(
@@ -207,16 +210,16 @@ const core = {
     );
 
     // Add only if options include babel code
-    if(scripts[id].language === 'javascript' && options['compiler']) {
-
+    if (scripts[id].language === 'javascript' && options['compiler']) {
       const { output } = this.elements;
 
       let compiledCode = compileCode(code, ['es2015', 'stage-0']);
-      let input = output.querySelector(`input[name="savant_field[${id}][compiled]"]`);
+      let input = output.querySelector(
+        `input[name="savant_field[${id}][compiled]"]`
+      );
 
       updateCompiledCode(scripts[id], compiledCode, input);
     }
-
   },
 
   newScript(e) {
@@ -226,7 +229,8 @@ const core = {
 
     // Get new data from input form
     const language = n.querySelector('.language input:checked').value;
-    const label = n.querySelector('.label input').value || language.toUpperCase();
+    const label =
+      n.querySelector('.label input').value || language.toUpperCase();
     const type = n.querySelector('.type input:checked').value;
     const id = uniqueID(scripts);
 

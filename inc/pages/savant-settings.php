@@ -27,6 +27,10 @@ class SavantSettings extends SavantController
 
   function savant_custom_settings() {
 
+    // Master Setting
+    register_setting('savant-settings-group', 'savant_workspace_settings');
+    
+
     // Register Settings
     register_setting( 'savant-settings-group', 'savant_screen' );
     register_setting( 'savant-settings-group', 'savant_editor_mode' );
@@ -47,7 +51,13 @@ class SavantSettings extends SavantController
     add_settings_field( 'minify', 'Minify my code', array( $this, 'settings_minify' ), 'savant_settings', 'savant-sidebar-options' );
     add_settings_field( 'babelify', 'Babelify my code', array( $this, 'settings_babelify' ), 'savant_settings', 'savant-sidebar-options' );
     add_settings_field( 'boilerplate', 'Boilerplate Code', array( $this, 'settings_boilerplate' ), 'savant_settings', 'savant-sidebar-options' );
+    
 
+    add_settings_field( 'savant-workspace-settings', 'Savant Settings', array( $this, 'savant_workspace_settings_callback' ), 'savant_settings', 'savant-sidebar-options' );  
+  }
+
+  function savant_workspace_settings_callback() {
+   
   }
 
   function savant_sidebar_options() {

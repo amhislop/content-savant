@@ -4,6 +4,9 @@
   <?php
   settings_fields( 'savant-settings-group' );
   do_settings_sections( 'savant_settings' );
+  ?>
+    <div id="savantSettings"></div>
+  <?php
   submit_button();
   ?>
 </form>
