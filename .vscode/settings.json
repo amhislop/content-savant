@@ -9,7 +9,7 @@
     "javascript": "javascriptreact"
   },
   "emmet.syntaxProfiles": {
-    // "javascript": "jsx",
+    "javascript": "jsx",
     "javascript": "html"
   }
   // "eslint.autoFixOnSave": true

@@ -21,7 +21,7 @@ class SavantEnqueue extends SavantController
 
     }
 
-    if ( is_array( $options ) && in_array( $typenow, $options ) && ( $pagenow =='post.php' || $pagenow == 'post-new.php' ) ) {
+    if ( (is_array( $options ) && in_array( $typenow, $options ) && ( $pagenow =='post.php' || $pagenow == 'post-new.php' )) || $pagenow == 'options-general.php' ) {
 
       // Scripts
       wp_enqueue_script( 'savant_admin_js', "$this->plugin_url/assets/dist/js/bundle.js", array('jquery', 'wp-element'), '1.1.0', true );
