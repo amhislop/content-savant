@@ -1,10 +1,8 @@
 <?php
-$line_numbers = get_option('savant_editor_line_numbers');
-$line_indicator = get_option('savant_editor_line_indicator');
-$boilerplate = get_option('savant_editor_boilerplate');
-$mode = get_option('savant_editor_mode');
-$theme = get_option('savant_editor_theme');
-$compiler = get_option('savant_editor_babelify');
+$options = get_option('savant_workspace_settings');
+$boilerplate = $options['boilerplate'];
+$theme = $options['theme'];
+$compiler = $options['babel'];
 $data =  get_post_meta($post->ID, 'savant_field', true);
 ?>
 <div class="savant side-bar<?php if(!$data) { echo ' new'; } ?> <?php echo $theme; ?>" data="<?php echo $post->ID ?>">
@@ -125,8 +123,6 @@ $data =  get_post_meta($post->ID, 'savant_field', true);
   <div class="savant-options">
     <input type="hidden" data-attribute="boilerplate" data-language="css" value="<?php echo $boilerplate['css']; ?>">
     <input type="hidden" data-attribute="boilerplate" data-language="javascript" value="<?php echo $boilerplate['javascript']; ?>">
-    <input type="hidden" data-attribute="mode" data-language="css" value="<?php echo $mode['css']; ?>">
-    <input type="hidden" data-attribute="mode" data-language="javascript" value="<?php echo $mode['javascript']; ?>">
     <input type="hidden" data-attribute="theme" value="<?php echo $theme; ?>">
 
     <?php if($compiler) : ?>

@@ -12,7 +12,7 @@ class SavantUninstall
   public static function uninstall(){
 
     // Clear Database stored data
-    $savant_post_types = get_option('savant_screen');
+    $savant_post_types = get_option('savant_workspace_settings')['post_types'];
 
     $savant_post_fields = array();
 
@@ -38,11 +38,7 @@ class SavantUninstall
     }
 
     // Delete All Options
-    delete_option( 'savant_screen' );
-    delete_option( 'savant_editor_boilerplate' );
-    delete_option( 'savant_editor_line_numbers' );
-    delete_option( 'savant_editor_line_indicator' );
-    delete_option( 'savant_editor_minify' );
+    delete_option('savant_workspace_settings');
   }
 
 }

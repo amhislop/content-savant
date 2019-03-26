@@ -437,6 +437,38 @@ table.wp-list-table .column-savant {
     font-size: 1.1em;
     padding: 0 1em; }
 
+#savantSettings .savant-settings-container {
+  background: white;
+  width: 95%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04); }
+  #savantSettings .savant-settings-container .top-bar {
+    width: 100;
+    border: 1px solid #e5e5e5;
+    padding: 0 1em;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+  #savantSettings .savant-settings-container .settings-search {
+    padding: 1em;
+    position: relative; }
+    #savantSettings .savant-settings-container .settings-search input {
+      background: #f9f9f9;
+      padding: 0.4em 1em;
+      width: 100%; }
+    #savantSettings .savant-settings-container .settings-search span {
+      position: absolute;
+      right: 2em;
+      top: 1.4em;
+      background: white;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+      padding: 0.2em 1em;
+      border: 1px solid #e5e5e5;
+      border-radius: 3px; }
+  #savantSettings .savant-settings-container .settings-table {
+    background: #f9f9f9;
+    padding: 1em; }
+
 .cm-s-atom-dark.CodeMirror {
   background: #21252b;
   color: #abb2bf; }

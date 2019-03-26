@@ -8,7 +8,7 @@
 if( !defined( 'WP_UNINSTALL_PLUGIN' ) ) exit;
 
 // Clear Database stored data
-$savant_post_types = get_option('savant_screen');
+$savant_post_types = get_option('savant_workspace_settings')['post_types'];
 
 $savant_post_fields = array();
 
@@ -34,8 +34,4 @@ foreach( $savant_post_fields as $savant_post_id ) {
 }
 
 // Delete All Options
-delete_option( 'savant_screen' );
-delete_option( 'savant_editor_boilerplate' );
-delete_option( 'savant_editor_line_numbers' );
-delete_option( 'savant_editor_line_indicator' );
-delete_option( 'savant_editor_minify' );
+delete_option('savant_workspace_settings');

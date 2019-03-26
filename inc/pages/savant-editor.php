@@ -20,13 +20,13 @@ class SavantEditor extends SavantController
 
   function savant_add_meta_box(){
 
-    $savant_screen = get_option('savant_screen');
+    $post_types = get_option('savant_workspace_settings')['post_types'];
 
     add_meta_box(
       'savant_meta',
       'Content Savant',
       array( $this, 'savant_callback_meta' ),
-      $savant_screen,
+      $post_types,
       'advanced',
       'low'
     );
@@ -46,7 +46,7 @@ class SavantEditor extends SavantController
 
     if ( $is_autosave || $is_revision || !$is_valid_nonce ) return;
 
-    $savant_field = $_POST[ 'savant_field' ];
+    $savant_field = isset($_POST[ 'savant_field' ]) ? $_POST[ 'savant_field' ] : null;
     $savant_meta = get_post_meta($post_id, 'savant_field', true );
 
     if ( isset( $savant_field ) ) { 

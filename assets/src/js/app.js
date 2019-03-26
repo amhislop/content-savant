@@ -15,7 +15,7 @@ import {
 import { compileCode, updateCompiledCode } from './modules/transform';
 import { getEditorSettings } from './modules/editor';
 import SavantSettings from './settings/SavantSettings';
-
+// console.log('kaboom');
 // TEMP WRAPPER
 if (!!document.getElementById('savantEditor')) {
   console.log('running');
@@ -30,6 +30,8 @@ if (!!document.getElementById('savantEditor')) {
     document.getElementById('savantEditor'),
     editorSettings
   );
+
+  let timeout = null;
 
   // Todo: Move Core to Class
   const core = {
@@ -112,7 +114,7 @@ if (!!document.getElementById('savantEditor')) {
 
       // Set Value in editor
       editor.codemirror.setValue(scripts[id].code);
-      editor.codemirror.setOption('mode', options.mode[scripts[id].language]);
+      editor.codemirror.setOption('mode', scripts[id].language);
       document.querySelector('.savant-window').dataset['type'] =
         scripts[id].type;
 
@@ -186,8 +188,7 @@ if (!!document.getElementById('savantEditor')) {
       update_script(scripts[id], { attr, value }, dest);
 
       // Set the editor to new Mode
-      if (attr === 'language')
-        editor.setOption('mode', options.mode[scripts[id].language]);
+      if (attr === 'language') editor.setOption('mode', scripts[id].language);
 
       // Set the editor or file window
       if (attr === 'type')
@@ -220,14 +221,18 @@ if (!!document.getElementById('savantEditor')) {
 
       // Add only if options include babel code
       if (scripts[id].language === 'javascript' && options['compiler']) {
-        const { output } = this.elements;
+        clearTimeout(timeout);
 
-        let compiledCode = compileCode(code, ['es2015', 'stage-0']);
-        let input = output.querySelector(
-          `input[name="savant_field[${id}][compiled]"]`
-        );
+        timeout = setTimeout(() => {
+          const { output } = this.elements;
 
-        updateCompiledCode(scripts[id], compiledCode, input);
+          let compiledCode = compileCode(code, ['es2015', 'stage-0']);
+          let input = output.querySelector(
+            `input[name="savant_field[${id}][compiled]"]`
+          );
+
+          updateCompiledCode(scripts[id], compiledCode, input);
+        }, 1000);
       }
     },
 

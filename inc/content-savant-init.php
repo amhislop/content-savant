@@ -9,6 +9,7 @@ require_once plugin_dir_path( __FILE__ ) . "base/savant-enqueue.php";
 require_once plugin_dir_path( __FILE__ ) . "base/savant-plugins.php";
 require_once plugin_dir_path( __FILE__ ) . "base/savant-render.php";
 require_once plugin_dir_path( __FILE__ ) . "base/savant-columns.php";
+require_once plugin_dir_path( __FILE__ ) . "base/savant-ajax.php";
 
 final class ContentSavantInit
 {
@@ -24,7 +25,8 @@ final class ContentSavantInit
       SavantEnqueue::class,
       SavantPlugins::class,
       SavantRender::class,
-      SavantColumns::class
+      SavantColumns::class,
+      SavantAjax::class
     );
   }
 

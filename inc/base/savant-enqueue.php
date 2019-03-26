@@ -13,9 +13,9 @@ class SavantEnqueue extends SavantController
   function admin_enqueue() {
     global $pagenow, $typenow;
 
-    $options = get_option('savant_screen');
+    $options = get_option('savant_workspace_settings')['post_types'];
 
-    if ( is_array( $options ) && in_array( $typenow, $options ) ) {
+    if ( (is_array( $options ) && in_array( $typenow, $options ) )|| $pagenow == 'options-general.php' ) {
 
       wp_enqueue_style( 'savant_admin_css', "$this->plugin_url/assets/dist/css/base.min.css" );
 

@@ -10,11 +10,14 @@ const $ = require('gulp-load-plugins')({
   ],
   replaceString: /^gulp(-|\.)|^vinyl-(source-)*/
 });
+const browserSync = require('browser-sync').create();
 
 const jsSRC = 'assets/src/js/app.js';
 const jsDist = 'assets/dist/js';
 const cssSRC = 'assets/src/scss/base.scss';
 const cssDIST = 'assets/dist/css';
+
+let proxy = 'savant.test';
 
 /*
  * Clean
@@ -63,14 +66,28 @@ gulp.task('scss', () =>
     )
     .pipe($.rename('base.min.css'))
     .pipe(gulp.dest(cssDIST))
+    .pipe(browserSync.stream({ match: '**/*.css' }))
 );
+
+/*
+ * Javascript watch
+ */
+gulp.task('js-watch', done => {
+  browserSync.reload();
+  done();
+});
 
 /*
  * Serve and watch for changes
  */
 gulp.task('watch', () => {
+  // Serve
+  browserSync.init({
+    proxy,
+    ghostMode: false
+  });
   //   gulp.watch('assets/js/src/modules/*.js', gulp.series('js'));
-  gulp.watch('assets/src/js/**/*.js', gulp.series('js'));
+  gulp.watch('assets/src/js/**/*.js', gulp.series('js', 'js-watch'));
   gulp.watch('assets/src/scss/**/*.scss', gulp.series('scss'));
 });
 

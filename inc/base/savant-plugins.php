@@ -15,7 +15,7 @@ class SavantPlugins extends SavantController
 
     global $pagenow, $typenow;
 
-    $options = get_option('savant_screen');
+    $options = get_option('savant_workspace_settings')['post_types'];
 
     if ( is_array( $options ) && in_array( $typenow, $options ) ) {
 

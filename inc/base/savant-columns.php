@@ -7,7 +7,7 @@ class SavantColumns
 {
   public function register() {
 
-    $options = get_option('savant_screen');
+    $options = get_option('savant_workspace_settings')['post_types'];
 
     if($options == "") $options = array();
 
